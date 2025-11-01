@@ -1,0 +1,25 @@
+services:
+  - type: worker
+    name: telegram-bot-plantaciones
+    env: python
+    plan: free
+    autoDeploy: true
+    buildCommand: |
+      pip install -r requirements.txt
+    startCommand: |
+      python telegram_bot_plantaciones.py
+    envVars:
+      - key: BOT_TOKEN
+        value: "AQUI_TU_TOKEN_DE_TELEGRAM"
+      - key: MYSQL_HOST
+        value: "tuhost.mysql.hostgator.mx"
+      - key: MYSQL_PORT
+        value: "3306"
+      - key: MYSQL_DB
+        value: "johnnygreen"
+      - key: MYSQL_USER
+        value: "usuario"
+      - key: MYSQL_PASSWORD
+        value: "contraseña"
+      - key: DEFAULT_TZ
+        value: "America/Mexico_City"
